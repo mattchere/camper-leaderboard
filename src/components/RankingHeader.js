@@ -8,8 +8,8 @@ class RankingHeader extends React.Component {
       <tr>
         <td>#</td>
         <td>Camper Name</td>
-        <SortableRecent />
-        <SortableAllTime />
+        <SortableRecent onClick={this.props.recent} />
+        <SortableAllTime onClick={this.props.allTime} />
       </tr>
     );
     

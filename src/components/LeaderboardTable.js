@@ -7,24 +7,60 @@ class LeaderboardTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      show: [],
+      recent: [],
+      allTime: []
     }
     this.showRecent = this.showRecent.bind(this);
     this.showAllTime = this.showAllTime.bind(this);
-    this.setUsers = this.setUsers.bind(this);
+    this.setRecent = this.setRecent.bind(this);
+    this.setAllTime = this.setAllTime.bind(this);
+    this.setShow = this.setShow.bind(this);
+  }
+  
+  get(url, store) {
+    $.get(url, function(data) {
+      this.setState({
+        store: data
+      });
+    });
   }
 
   showRecent() {
-    $.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent', this.setUsers);
+    if (this.state.recent.length === 0) {
+      $.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent', this.setRecent);
+    }
+    else {
+      this.setShow(this.state.recent);
+    }
   }
 
   showAllTime() {
-    $.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime', this.setUsers);
+    if (this.state.allTime.length === 0) {
+      $.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime', this.setAllTime);
+    }
+    else {
+      this.setShow(this.state.allTime);
+    }
+  }
+  
+  setAllTime(data) {
+    this.setState({
+      allTime: data
+    });
+    this.setShow(data);
   }
 
-  setUsers(data) {
+  setRecent(data) {
     this.setState({
-      users: data
+      recent: data
+    });
+    this.setShow(data);    
+  }
+
+  setShow(data) {
+    this.setState({
+      show: data
     });
   }
 
@@ -35,18 +71,17 @@ class LeaderboardTable extends React.Component {
   render() {
     return (
       <table className="leaderboard-table">
-        <thead>
+        <thead className="leaderboard-table-header">
           <tr>
-            <td>Leaderboard</td>
+            <td colSpan="4">Leaderboard</td>
           </tr>
         </thead>
         <tbody>
         <RankingHeader recent={this.showRecent} allTime={this.showAllTime} />
-        {this.state.users.map((user, i) => <UserRow user={user} id={i} key={i} />)}
+        {this.state.show.map((user, i) => <UserRow user={user} id={i} key={i} />)}
         </tbody>
       </table>
     );
-    
   }
 }
 

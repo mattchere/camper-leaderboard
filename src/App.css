@@ -1,8 +1,33 @@
 .leaderboard-table {
+  font-family: 'Lato', sans-serif;
   margin: 20px auto;
 }
+.leaderboard-table td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
 
+.leaderboard-table-header {
+  background-color: #006400;
+  border: 2px solid black;
+  border-radius: 10px;
+  color: white;
+  font-size: 40px;
+  padding: 10px;
+  text-align: center;
+}
 .avatar {
+  display: inline-block;
   height: 50px;
   width: 50px;
+}
+
+.user {
+  width: 50%;
+}
+
+.sort-link {
+  cursor: pointer;
+  text-decoration: underline;
 }

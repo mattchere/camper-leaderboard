@@ -14,7 +14,7 @@ class SortableRecent extends React.Component {
   render() {
     return (
       <td>
-        <a onClick={this.handleClick}>Points in past 30 days</a>
+        <a className="sort-link" onClick={this.handleClick}>Points in past 30 days</a>
       </td>
     );
     

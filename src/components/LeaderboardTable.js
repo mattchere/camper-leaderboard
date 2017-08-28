@@ -71,9 +71,9 @@ class LeaderboardTable extends React.Component {
   render() {
     return (
       <table className="leaderboard-table">
-        <thead className="leaderboard-table-header">
+        <thead>
           <tr>
-            <td colSpan="4">Leaderboard</td>
+            <td className="leaderboard-table-header" colSpan="4">Leaderboard</td>
           </tr>
         </thead>
         <tbody>

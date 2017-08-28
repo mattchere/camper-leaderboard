@@ -14,7 +14,7 @@ class SortableAllTime extends React.Component {
   render() {
     return (
       <td>
-        <a onClick={this.handleClick}>All time points</a>
+        <a className="sort-link" onClick={this.handleClick}>All time points</a>
       </td>
     );
     

@@ -4,9 +4,9 @@ import '../App.css';
 class User extends React.Component {
   render() {
     return (
-      <td>
+      <td className="user">
         <img src={this.props.img} alt={this.props.name + "'s avatar"} className="avatar" />
-        <a>{this.props.name}</a>  
+        <a href={"https://www.freecodecamp.com/" + this.props.name}>{this.props.name}</a>  
       </td>
     );
     

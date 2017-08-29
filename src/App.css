@@ -1,17 +1,21 @@
+body {
+  background-color: #969696;
+}
 .leaderboard-table {
+  background-color: white;
+  border-collapse: collapse;
   font-family: 'Lato', sans-serif;
   margin: 20px auto;
+  width: 75%;
 }
 .leaderboard-table td {
-  border: 2px solid black;
+  border: 2px solid #696060;
   border-collapse: collapse;
   padding: 5px;
 }
 
 .leaderboard-table-header {
   background-color: #006400;
-  border: 2px solid black;
-  border-radius: 10px;
   color: white;
   font-size: 40px;
   padding: 10px;
@@ -24,7 +28,12 @@
 }
 
 .user {
-  width: 50%;
+  width: 60%;
+}
+
+.user a {
+  margin-left: 20px;
+  vertical-align: top;
 }
 
 .sort-link {
